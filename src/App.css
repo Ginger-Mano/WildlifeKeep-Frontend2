@@ -1,0 +1,160 @@
+/* .App {
+  text-align: center;
+} */
+/* font-family: 'David Libre', serif;
+font-family: 'Lora', serif;
+font-family: 'Open Sans', sans-serif; */
+/* .endtag {
+  font-family: 'Lora', serif;
+  color: black !important;
+  background-color: yellow !important;
+  font-size: 30px !important;
+  text-align: center !important
+} */
+.watch {
+  text-align: center;
+}
+.nav {
+  background-color: black;
+}
+.vidcontainer {
+  position: relative;
+  min-height: 300px;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 1000px black inset ; 
+}
+.video {
+  width: 120%;
+  height: 120%
+}
+.caption {
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  color: white;
+}
+.caption1 {
+  position: absolute;
+  top: 500px;
+  /* background-color: rgba(0, 0, 0, 0); */
+  background-color: black;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  color: white;
+  
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.captionsub1 {
+  text-align: center;
+  padding: 10px;
+}
+
+.captionsub {
+  text-align: center;
+  padding: 10px;
+}
+.static11 {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 50%;
+  box-shadow: 200px 200px 50px 10px black inset ; 
+}
+
+
+.seeMore {
+  background-color: indigo;
+}
+.animalname {
+  text-align: center;
+}
+.animalImage {
+  height: 270px;
+  width: 500px;
+  overflow: hidden;
+  transition: transform 1s, filter 2s ease-in-out;
+  transform: scale(1);
+}
+.animalImage:hover {
+  transform: scale(1.05);
+}
+.animalmodalhead {
+  background-color: black;
+}
+.animalmodaldes {
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+}
+.animalcard {
+
+  margin: 50px;
+}
+.footer {
+  background-color: black;
+}
+.footercont {
+  background-color: black;
+}
+.animalmain {
+  padding: 30px;
+}
+.watchlistmain {
+  padding: 30px;
+}
+.animalModalImg {
+  height: 400px;
+  width: 720px;
+  
+}
+.newusermain {
+  padding: 30px;
+}
+.userinfo {
+  background-color:bisque;
+  text-align: center;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url('https://cdn.pixabay.com/photo/2019/08/27/19/08/mushrooms-4434962_1280.jpg');
+
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.otherdiv {
+  height: 10px;
+  background-color: red;
+  font-size: larger;
+}
+.aboutpic {
+  width: 100%;
+}
+/* .watchdiv {
+  background-color: azure;
+} */
+.userpage {
+  background-color: beige;
+}
