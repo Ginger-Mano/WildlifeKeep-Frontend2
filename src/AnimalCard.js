@@ -32,7 +32,7 @@ removeWatchAnimal = (evt) => {
         
         {/* 8. Add in the ternary statement for the conditional rendering */}
         <h2 className="animalname" onClick={this.handleInfoModalClick}>{this.props.animal.name}</h2>
-        <Image className="animalImage" src={this.props.animal.image.url} padded></Image>
+        <Image className="animalImage" src={this.props.animal.url} padded></Image>
 
         <EndangeredInfoModal animal={this.props.animal} />
         <br></br>
@@ -42,7 +42,7 @@ removeWatchAnimal = (evt) => {
         
     {/* 8. Add in the ternary statement for the conditional rendering */}
     <h2 className="animalname" onClick={this.handleInfoModalClick}>{this.props.animal.name}</h2>
-    <Image className="animalImage" src={this.props.animal.image.url} padded></Image>
+    <Image className="animalImage" src={this.props.animal.url} padded></Image>
 
     <EndangeredInfoModal animal={this.props.animal} />
     <br></br>

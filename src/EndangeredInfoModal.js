@@ -15,11 +15,11 @@ const EndangeredInfoModal = (props) => {
     >
       <Modal.Header >The {props.animal.name}</Modal.Header>
       <Modal.Content image scrolling>
-        <Image size="large" src={props.animal.image.url} wrapped />
+        <Image size="large" src={props.animal.url} wrapped />
 
         <Modal.Description>
         <Image className="animalModalImg"
-            src={props.animal.image.url}
+            src={props.animal.url}
             style={{ marginBottom: 10 }}
           />
           <br></br>
@@ -31,7 +31,7 @@ const EndangeredInfoModal = (props) => {
             src='https://react.semantic-ui.com/images/wireframe/paragraph.png'
             style={{ marginBottom: 10 }}
           /> */}
-        
+    
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>

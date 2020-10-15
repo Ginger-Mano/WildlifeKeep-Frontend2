@@ -6,7 +6,7 @@ import { Search, Grid, Header, Segment } from 'semantic-ui-react'
 const source = _.times(5, () => ({
 //   name: props.animal.name,
 //   habitat: props.animal.habitat,
-//   image: props.animal.image.url,
+//   image: props.animal.url,
 //   location: props.animal.location
 }))
 

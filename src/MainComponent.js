@@ -16,7 +16,7 @@ class MainComponent extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:3000/allSpecies`)
+        fetch(`http://localhost:3000/endangered_animals`)
         .then(res => res.json())
         .then(animalArray => 
             this.setState({
