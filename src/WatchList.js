@@ -12,8 +12,9 @@ class WatchList extends Component {
         // console.log(this.state.watchAnimals);
 
         // 6. Map over the watchAnimals array to render the AnimalCard
-        let watchListArr = this.props.watchAnimals.map(animal => 
-        <AnimalCard animal={animal} removeAnimal={this.props.removeAnimal}/>)
+        
+        // let watchListArr = this.props.watchAnimals.map(animal => 
+        // <AnimalCard animal={animal} removeAnimal={this.props.removeAnimal}/>)
         
         return(    
         <div className="watchlistmain">
@@ -23,7 +24,7 @@ class WatchList extends Component {
         <h3>Here are your animals: </h3><br></br>
 
         <Card.Group centered itemsPerRow={1}>
-        {watchListArr}
+        {/* {watchListArr} */}
         </Card.Group>
         </div>
 

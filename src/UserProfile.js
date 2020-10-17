@@ -6,7 +6,6 @@ import {Form, Modal, Popup} from "semantic-ui-react"
 
 class UserProfile extends Component {
     state = {
-        user: [],
         username: "",
         name: "",
         age: "",
@@ -15,15 +14,6 @@ class UserProfile extends Component {
         handleSubmit: false
     }
 
-    // componentDidMount() {
-    //     fetch(`http://localhost:3000/users`)
-    //     .then(res => res.json())
-    //     .then(userArray => 
-    //         this.setState({
-    //         user: userArray})
-    //         )
-    //     }
-
 handleChange = (evt) => {
     this.setState({
         [evt.target.name]: evt.target.value
@@ -31,13 +21,6 @@ handleChange = (evt) => {
     // console.log(evt);
 } 
 
-newUserState = (newUserObj) => {
-    const newUser = [...this.state.user, newUserObj]
-
-    this.setState({
-        user: newUser
-    })
-}
 
 handleSubmit = (evt) => {
     // console.log(evt);
@@ -59,10 +42,9 @@ handleSubmit = (evt) => {
       })
       .then(res => res.json())
       .then(newUserObj => {
-          this.newUserState(newUserObj)
-          this.props.setCurrentUser(newUserObj)
+    // create new user function from NavBar. Then from NavBar root is App.js
+    this.props.newUser(newUserObj)
           this.props.history.push("/userpage")
-          //working but modal is not closing
       } )
       this.setState({
           name: "",
@@ -112,13 +94,13 @@ handleSubmit = (evt) => {
             <Form onSubmit={this.handleSubmit} >
             <Form.Group widths="equal">
 
-            <Form.Input type="text" fluid label=" Username" placeholder="Username" name="username" onChange={this.handleChange} value={this.state.user.username}/><br></br>
+            <Form.Input type="text" fluid label=" Username" placeholder="Username" name="username" onChange={this.handleChange} value={this.state.username}/><br></br>
 
-            <Form.Input type="text" fluid label="Name" placeholder="Name" name="name" onChange={this.handleChange} value={this.state.user.name} />
+            <Form.Input type="text" fluid label="Name" placeholder="Name" name="name" onChange={this.handleChange} value={this.state.name} />
 
-            <Form.Input type="text" fluid label="Age" placeholder="Age" name="age" onChange={this.handleChange} value={this.state.user.age}/> 
+            <Form.Input type="text" fluid label="Age" placeholder="Age" name="age" onChange={this.handleChange} value={this.state.age}/> 
 
-            <Form.Input type="text" fluid label="Location" placeholder="Location" name="location" onChange={this.handleChange} value={this.state.user.location}/> 
+            <Form.Input type="text" fluid label="Location" placeholder="Location" name="location" onChange={this.handleChange} value={this.state.location}/> 
             
           </Form.Group>
           <Form.Button color="black">Enter Info</Form.Button>

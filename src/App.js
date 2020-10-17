@@ -13,7 +13,6 @@ import Contact from "./Contact"
 
 class App extends Component {
     state = {
-      login: false,
       user: {},
       watchAnimals: [],
       animals: []
@@ -34,6 +33,22 @@ class App extends Component {
             this.setState({
             animals: animalArray})
             )
+            if (this.state.token) {
+              fetch(`http://localhost:3000/persist`, {
+                headers: {
+                  "Authorization": `bearer ${this.state.token}`
+                }
+              })
+              .then(response => response.json())
+              .then(data => {
+                console.log(data)
+                if (data.token) {
+                  this.setState({
+                    user: data.user
+                  })
+                }
+              })
+            }
   }
 
   addAnimalToWatchList = (animal) => {
@@ -74,51 +89,26 @@ removeAnimal = (animal) => {
 })
 }
 
+newUser = (newUserObj) => {
+  this.setState({
+    user: newUserObj.user, 
+    token: newUserObj.token
+  })
+}
 
 
-
-
-    //setCurrentUser func is being sent to the UserProfile as props
-    //UserObj is coming when a user is being created
-    setCurrentUser = (userObj) => {
-      this.setState({
-        user: userObj,
-        login: true
-      })
-      // this.props.history.push("/userpage")
-    }
-   
-    //sending updateUser to userUpdateForm
-    updatedUser = (updatedUserObj) => {
-
-      this.setState({
-          user: updatedUserObj
-      })
-      // console.log(updatedUserArr)
-      // console.log(updatedUserObj)
-    }
-
-    deleteUser = () => {
-      console.log(this.state.user, "hi");
-      // let copyOfUserArr = this.state.user.filter((user) => {
-      //     return user.id !== userId
-      // })
-      this.setState({
-          user: {}
-      })
-      this.props.history.push("/")
-  } 
 
   render() {
-    console.log(this.state.login);
+    console.log(this.state.user);
+    // debugger
     let endangeredAnimalCardFalse = this.state.animals.map(animal => <AnimalCardFalse key={animal.id} addAnimalToWatchList={this.addAnimalToWatchList} animal={animal} login={this.state.login}/>)
   return (
    
     <div className="App">
-      <NavigationBar login={this.state.login} user={this.state.user} setCurrentUser={this.setCurrentUser}  />
+      <NavigationBar user={this.state.user} newUser={this.newUser}  />
 
       <Switch>
-      <Route exact path="/" render={ () => <MainComponent login={this.state.login} addAnimalToWatchList={this.addAnimalToWatchList}/>}/>
+      <Route exact path="/" render={ () => <MainComponent addAnimalToWatchList={this.addAnimalToWatchList}/>}/>
  
       <Route path="/userpage" render={ () => <Userpage user={this.state.user} updatedUser={this.updatedUser} deleteUser={this.deleteUser} addAnimalToWatchList={this.addAnimalToWatchList}  removeAnimal={this.removeAnimal} watchAnimals={this.state.watchAnimals} animals={this.state.animals} setCurrentUser={this.setCurrentUser}/>}/>
 

@@ -54,15 +54,15 @@ class NavigationBar extends Component {
 
        <Button as='a' color="black" inverted={!fixed}>
          
-         {this.props.login !== false ? this.props.user.username : "Log In"}
+         {/* {this.props.login !== false ? this.props.user.username : "Log In"} */}
        </Button>
-        {this.props.login !== false ? "" :
+        {/* {this.props.login !== false ? "" : */}
         <Modal closeIcon style={{padding: '30px', backgroundColor: 'AntiqueWhite'}} trigger= {<Button icon color="black" inverted={!fixed} style={{ marginLeft: '0.5em'}}>
           
          Sign Up 
           </Button>}>
-          <UserProfile setCurrentUser={this.props.setCurrentUser} deleteUser={this.props.deleteUser}/>
-        </Modal>}
+          <UserProfile newUser={this.props.newUser} deleteUser={this.props.deleteUser}/>
+        </Modal>
       
 
      </Menu.Item>

@@ -55,22 +55,6 @@ class Userpage extends Component {
             <Grid.Column>
             <div>
              
-            {/* <div>
-                <br></br><br></br>
-            <h2>Welcome, {this.props.user.username}!</h2>
-            <br></br>
-            <h3>
-                Here is your profile info: <br></br>
-                <br></br>
-                Name: {this.props.user.name} <br></br>
-                Age: {this.props.user.age} <br></br>
-                Location: {this.props.user.age}
-            </h3>
-           
-            <UserDeleteModal1 handleDelete={this.handleDelete} />
-
-            <UserUpdateForm user={this.props.user} updatedUser={this.props.updatedUser}/>
-            </div> */}
             
             <div className="watchdiv">
               <WatchList watchAnimals={this.props.watchAnimals} addAnimalToWatchList={this.props.addAnimalToWatchList} itemsPerRow={1} removeAnimal={this.props.removeAnimal}/>     
