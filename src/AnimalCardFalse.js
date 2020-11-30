@@ -1,7 +1,6 @@
 import React, {Component} from "react"
 import EndangeredInfoModal from "./EndangeredInfoModal"
-import {Route, Switch} from 'react-router-dom'
-import {Grid, Divider, Icon, Image, Input, Card} from "semantic-ui-react" 
+import {Image, Card} from "semantic-ui-react" 
 
 class AnimalCardFalse extends Component {
 
@@ -15,7 +14,6 @@ handleAddToWatch = (evt) => {
 }
 removeWatchAnimal = (evt) => {
     this.props.removeAnimal(this.props.animal)
-    // console.log(this.props.animal);
   }
 
   handleInfoModalClick = (evt) => {
@@ -34,8 +32,6 @@ removeWatchAnimal = (evt) => {
         <Image size='large' src={this.props.animal.url} padded></Image>
 
         <EndangeredInfoModal animal={this.props.animal} />
-
-        {/* <Icon onClick={this.props.addAnimalToWatchList ? this.handleAddToWatch : this.removeWatchAnimal} link name={this.props.addAnimalToWatchList ? 'heart' : 'trash' }/> */}
         
     </Card>
     </div>

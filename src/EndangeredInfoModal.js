@@ -2,8 +2,7 @@ import React from 'react'
 import { Button, Icon, Image, Modal } from 'semantic-ui-react'
 
 const EndangeredInfoModal = (props) => {
-  // console.log(props);
-   const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false)
 
   return (
     <Modal
@@ -18,7 +17,7 @@ const EndangeredInfoModal = (props) => {
         <Image size="large" src={props.animal.url} wrapped />
 
         <Modal.Description>
-        <Image className="animalModalImg"
+          <Image className="animalModalImg"
             src={props.animal.url}
             style={{ marginBottom: 10 }}
           />
@@ -31,7 +30,7 @@ const EndangeredInfoModal = (props) => {
             src='https://react.semantic-ui.com/images/wireframe/paragraph.png'
             style={{ marginBottom: 10 }}
           /> */}
-    
+
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>

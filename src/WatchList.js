@@ -1,6 +1,4 @@
 import React, {Component} from "react"
-import AnimalCard from "./AnimalCard"
-import {Route} from 'react-router-dom'
 import { Card } from "semantic-ui-react"
 
 

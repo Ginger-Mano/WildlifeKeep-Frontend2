@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
-import ContactInfoModal from "./ContactInfoModal"
 
-const options = [
-  { key: 'm', text: 'Male', value: 'male' },
-  { key: 'f', text: 'Female', value: 'female' },
-  { key: 'o', text: 'Other', value: 'other' },
-]
+// const options = [
+//   { key: 'm', text: 'Male', value: 'male' },
+//   { key: 'f', text: 'Female', value: 'female' },
+//   { key: 'o', text: 'Other', value: 'other' },
+// ]
 
 class Contact extends Component {
   state = {
@@ -23,7 +22,7 @@ class Contact extends Component {
   }
 
   render() {
-    const { value } = this.state
+    // const { value } = this.state
     return (
       <Form onClick={this.handleSubmit}>
         <Form.Group widths='equal'>

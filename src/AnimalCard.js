@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import EndangeredInfoModal from "./EndangeredInfoModal"
-import {Grid, Divider, Icon, Image, Input, Card} from "semantic-ui-react" 
+import {Icon, Image, Card} from "semantic-ui-react" 
 
 class AnimalCard extends Component {
 

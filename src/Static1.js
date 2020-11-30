@@ -3,8 +3,6 @@ import Typewriter from 'typewriter-effect';
 import "./cssfiles/Static1.css"
 
 const Static1 = () => {
-    // return <div><h1>Static</h1><hr></hr><br></br></div>
-
     return <div className="type">
       <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
       <Typewriter onInit={(typewriter) => {

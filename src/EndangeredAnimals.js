@@ -1,10 +1,11 @@
 import React, {Component} from "react"
 import AnimalCard from "./AnimalCard"
-import AnimalCardFalse from "./AnimalCardFalse"
-import {Grid, Card, Button, Icon, Label, Divider} from "semantic-ui-react" 
-import SearchAnimal from "./SearchAnimal"
-import { render } from "@testing-library/react"
-import {Link} from 'react-router-dom'
+import {
+    Card, 
+    Button, 
+    Icon
+} from "semantic-ui-react" 
+
 
 class EndangeredAnimals extends Component {
     state = {
@@ -31,8 +32,6 @@ class EndangeredAnimals extends Component {
         //5. Add addAnimalToWatchList as props to AnimalCard (Child)
         let endangeredAnimalCard = this.props.animals.map(animal => <AnimalCard key={animal.id} addAnimalToWatchList={this.props.addAnimalToWatchList} animal={animal} login={this.props.login}/>)
 
-        // let endangeredAnimalCardFalse = this.props.animals.map(animal => <AnimalCardFalse key={animal.id} addAnimalToWatchList={this.props.addAnimalToWatchList} animal={animal} login={this.props.login}/>)
-
         let renderFirstThree = this.state.seeAllAnimals ? endangeredAnimalCard : endangeredAnimalCard.slice(0, 8)
    
         return(
@@ -40,9 +39,7 @@ class EndangeredAnimals extends Component {
         <div className="animalmain">
             <br></br> <br></br>
            
-            <Card.Group centered itemsPerRow={this.props.itemsPerRow} padded>
-            {/* {endangeredAnimalCard} */}
-            
+            <Card.Group centered itemsPerRow={this.props.itemsPerRow} padded>        
             {renderFirstThree}
             </Card.Group>
 
@@ -52,13 +49,12 @@ class EndangeredAnimals extends Component {
 
             { this.state.seeAllAnimals ? "" : 
             <Button animated secondary floated="right" onClick={this.handleSeeMoreClick}>
-            {/* <Link to="/endanimals"> */}
             <Button.Content visible>See More</Button.Content>
             
             <Button.Content hidden>
             <Icon name='arrow right' />
             </Button.Content>
-            {/* </Link> */}
+        
             </Button>       
     }
             {this.state.seeAllAnimals ? 

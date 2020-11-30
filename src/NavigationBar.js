@@ -1,75 +1,82 @@
-import React, {Component} from "react"
+import React, { Component, useReducer } from "react"
 import UserProfile from "./UserProfile"
-import {Route} from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
-import { NavLink , Link} from 'react-router-dom'
-import {Form, Modal} from "semantic-ui-react" 
- import {
-     Button,
-     Container,
-     Menu,
-     Visibility,
-     Icon
-   } from 'semantic-ui-react'
-
+import LoginForm from "./LoginForm"
+import { NavLink, Link } from 'react-router-dom'
+import {
+  Button,
+  Container,
+  Menu,
+  Modal,
+  Visibility,
+} from 'semantic-ui-react'
 
 class NavigationBar extends Component {
-     state = {}
+  state = {}
 
-     hideFixedMenu = () => this.setState({ fixed: false })
-     showFixedMenu = () => this.setState({ fixed: true })
-  
-    render() {  
-    console.log(this.props.user.username);
+  hideFixedMenu = () => this.setState({ fixed: false })
+  showFixedMenu = () => this.setState({ fixed: true })
 
-    const { children } = this.props
+  loggedOutUser = () => {
+    localStorage.removeItem("token")
+  }
+
+  render() {
+    // console.log(this.props.user.username);
+    // console.log(this.props);
+
     const { fixed } = this.state
-    return    <div className="nav">
+    return <div className="nav">
 
-    <Visibility
-     once={false}
-     onBottomPassed={this.showFixedMenu}
-     onBottomPassedReverse={this.hideFixedMenu}>
+      <Visibility
+        once={false}
+        onBottomPassed={this.showFixedMenu}
+        onBottomPassedReverse={this.hideFixedMenu}>
 
-    <Menu color="black"
-     fixed={fixed ? 'top' : null}
-     inverted={!fixed}
-     pointing={!fixed}
-     secondary={!fixed}
-     size='large'
-    >
-      <Container>
-     
-     <Menu.Item  as='a' active>
-       <NavLink to='/'>Home</NavLink>
-     </Menu.Item>
-   
-    {/* <Link to="/endanimals"> */}
-    <Menu.Item as='a'> <Link to="/endanimals">Animals </Link></Menu.Item>
-    {/* </Link> */}
+        <Menu color="black"
+          fixed={fixed ? 'top' : null}
+          inverted={!fixed}
+          pointing={!fixed}
+          secondary={!fixed}
+          size='large'
+        >
+          <Container>
 
-     <Menu.Item as='a'>Organizations</Menu.Item>
-     <Menu.Item as='a'>Tribe</Menu.Item>
-     <Menu.Item position='right'>
+            <Menu.Item as='a' active>
+              <NavLink to='/'>Home</NavLink>
+            </Menu.Item>
 
-       <Button as='a' color="black" inverted={!fixed}>
-         
-         {/* {this.props.login !== false ? this.props.user.username : "Log In"} */}
-       </Button>
-        {/* {this.props.login !== false ? "" : */}
-        <Modal closeIcon style={{padding: '30px', backgroundColor: 'AntiqueWhite'}} trigger= {<Button icon color="black" inverted={!fixed} style={{ marginLeft: '0.5em'}}>
-          
-         Sign Up 
-          </Button>}>
-          <UserProfile newUser={this.props.newUser} deleteUser={this.props.deleteUser}/>
-        </Modal>
-      
+            <Menu.Item as='a'> <Link to="/endanimals">Animals </Link></Menu.Item>
+            <Menu.Item as='a'>Organizations</Menu.Item>
+            <Menu.Item as='a'>Tribe</Menu.Item>
+            {localStorage.token ?
+              <>
+                <Menu.Item as='a'> <Link to="/userpage">Welcome, {this.props.user.name}</Link></Menu.Item>
+                <Menu.Item onClick={this.loggedOutUser} as='a' > <Link to='/'>Log Out</Link></Menu.Item>
+              </> :
+              <Menu.Item position='right'>
 
-     </Menu.Item>
-    </Container>
-   </Menu>
-  </Visibility>
-  </div>
+                <Modal closeIcon style={{ padding: '30px', backgroundColor: 'AntiqueWhite' }}
+                  trigger={<Button as='a' color="black" inverted={!fixed}>
+
+                    Log In
+         </Button>}>
+                  <LoginForm login={this.props.login} deleteUser={this.props.deleteUser} />
+                </Modal>
+
+                <Modal closeIcon style={{ padding: '30px', backgroundColor: 'AntiqueWhite' }} trigger={
+                  <Button icon color="black" inverted={!fixed} style={{ marginLeft: '0.5em' }}>
+                    Sign Up
+                </Button>}
+                >
+                  <UserProfile user={this.props.user} newUser={this.props.newUser} deleteUser={this.props.deleteUser} />
+                </Modal>
+
+
+              </Menu.Item>}
+          </Container>
+        </Menu>
+      </Visibility>
+    </div>
   }
 }
 

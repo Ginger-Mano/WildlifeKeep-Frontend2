@@ -127,7 +127,7 @@ font-family: 'Open Sans', sans-serif; */
   padding: 30px;
 }
 .userinfo {
-  background-color:bisque;
+  background-color:rgb(229, 237, 251);
   text-align: center;
 }
 
@@ -156,5 +156,5 @@ font-family: 'Open Sans', sans-serif; */
   background-color: azure;
 } */
 .userpage {
-  background-color: beige;
+  background-color: rgb(220, 234, 245);
 }
