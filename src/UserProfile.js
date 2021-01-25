@@ -17,9 +17,8 @@ class UserProfile extends Component {
         this.setState({
             [evt.target.name]: evt.target.value
         })
-        // console.log(evt);
-    }
 
+    }
 
     handleSubmit = (evt) => {
         // console.log(evt);
@@ -43,7 +42,6 @@ class UserProfile extends Component {
         })
             .then(res => res.json())
             .then(newUserObj => {
-                // create new user function from NavBar. Then from NavBar root is App.js
                 localStorage.setItem("token", newUserObj.token)
                 this.props.newUser(newUserObj)
                 this.props.history.push("/userpage")
@@ -57,32 +55,6 @@ class UserProfile extends Component {
             handleSubmit: true
         })
     }
-
-
-
-    //     const updatedUserArr = this.state.user.map(user => {
-    //         if (user.id === updatedUserObj.id){
-    //             return updatedUserObj
-    //         } else {
-    //             return user
-    //         }
-    //     })
-    //     this.setState({
-    //         user: updatedUserArr
-    //     })
-    //     console.log(updatedUserArr)
-    //     console.log(updatedUserObj)
-    // }
-    // deleteUser = (userId) => {
-    //     console.log(this.state.user, "hi");
-    //     let copyOfUserArr = this.state.user.filter((user) => {
-    //         return user.id !== userId
-    //     })
-    //     this.setState({
-    //         user: copyOfUserArr
-    //     })
-    // }
-
 
     render() {
         // debugger

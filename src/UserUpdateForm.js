@@ -9,31 +9,11 @@ class UserUpdateForm extends Component {
         location: ""
     }
     handleChange = (evt) => {
-        // console.log(this.props);
         let { value, name } = evt.target
         this.setState({
             [name]: value
         })
     }
-    //     handleUpdateSubmit = (evt) => {
-    //         evt.preventDefault()
-    //         console.log(evt);
-    //         fetch(`http://localhost:3000/users/${this.props.user.id}`, {
-    //             method: "PATCH",
-    //             headers: {
-    //                 "Content-Type": "application/json",
-    //             },
-    //             body: JSON.stringify(
-    //                 //the state includes the name, username, etc...
-    //                this.state
-    //             )
-    //         })
-    //         .then(res => res.json())
-    //         .then((updatedUserObj) => {
-    //             console.log(updatedUserObj)
-    //             this.props.updatedUser(updatedUserObj)
-    //     })
-    // }
 
     render() {
         return (

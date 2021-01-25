@@ -26,11 +26,6 @@ const EndangeredInfoModal = (props) => {
             {props.animal.description}
           </p>
 
-          {/* <Image
-            src='https://react.semantic-ui.com/images/wireframe/paragraph.png'
-            style={{ marginBottom: 10 }}
-          /> */}
-
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>

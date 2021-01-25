@@ -21,8 +21,6 @@ class NavigationBar extends Component {
   }
 
   render() {
-    // console.log(this.props.user.username);
-    // console.log(this.props);
 
     const { fixed } = this.state
     return <div className="nav">

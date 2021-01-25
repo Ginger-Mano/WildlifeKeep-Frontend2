@@ -8,6 +8,9 @@ import { withRouter } from 'react-router-dom'
 
 
 class Userpage extends Component {
+    state = {
+        login: true
+    }
 
     handleDelete = (event) => {
         console.log(this.props.user.id);
@@ -33,20 +36,23 @@ class Userpage extends Component {
         })
             .then(res => res.json())
             .then(updatedUser => {
-                // create new user function from NavBar. Then from NavBar root is App.js
+                // this.props.history.push("/userpage")
                 this.setState({
                     name: updatedUser.name,
                     username: updatedUser.username,
                     password: updatedUser.password,
                     age: updatedUser.age,
-                    location: updatedUser.location
-                })
+                    location: updatedUser.location,
 
+                })
+                console.log(updatedUser)
+                this.props.history.push("/userpage")
             })
+
     }
 
     render() {
-        console.log(this.props.history)
+        // console.log(this.props.history)
         return (
 
             <div className="userpage">
@@ -70,7 +76,7 @@ class Userpage extends Component {
 
                 <Grid columns={2} divided>
                     <Grid.Column>
-                        {this.props.setCurrentUser ?
+                        {this.state.login ?
                             <div>
                                 <EndangeredAnimals animals={this.props.animals} itemsPerRow={2} addAnimalToWatchList={this.props.addAnimalToWatchList} />
                             </div>

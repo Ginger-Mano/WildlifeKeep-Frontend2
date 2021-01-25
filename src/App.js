@@ -8,23 +8,26 @@ import MainComponent from "./MainComponent"
 import Userpage from "./Userpage"
 import { Route, Switch, withRouter } from 'react-router-dom'
 import './App.css';
+import EndangeredAnimals from './EndangeredAnimals';
 
 
 class App extends Component {
   state = {
+    login: false,
     user: {},
     watchAnimals: [],
     animals: []
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/watchAnimals`)
+    fetch(`http://localhost:3000/watch_lists`)
       .then(res => res.json())
       .then(watchAnimalArray =>
         this.setState({
           watchAnimals: watchAnimalArray
+
         })
-        // console.log(watchAnimalArray)
+
       )
     fetch(`http://localhost:3000/endangered_animals`)
       .then(res => res.json())
@@ -44,6 +47,7 @@ class App extends Component {
           console.log(data)
           if (data.token) {
             this.setState({
+              login: true,
               user: data.user
             })
           }
@@ -52,7 +56,7 @@ class App extends Component {
   }
 
   addAnimalToWatchList = (animal) => {
-    fetch("http://localhost:3000/watchAnimals", {
+    fetch(`http://localhost:3000/watch_lists`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -61,7 +65,6 @@ class App extends Component {
     })
       .then(r => r.json())
       .then(newWatchAnimalObj => {
-        // console.log(newWatchAnimalObj);
         this.setState({
           watchAnimals: [...this.state.watchAnimals, newWatchAnimalObj]
         })
@@ -69,7 +72,7 @@ class App extends Component {
   }
 
   removeAnimal = (animal) => {
-    fetch(`http://localhost:3000/watchAnimals/${animal.id}`, {
+    fetch(`http://localhost:3000/watch_lists/${animal.id}`, {
       method: "DELETE"
     })
       .then(res => res.json())
@@ -89,7 +92,6 @@ class App extends Component {
   }
 
   login = (existingUser) => {
-    console.log(existingUser);
     fetch(`http://localhost:3000/login`, {
       method: "POST",
       headers: {
@@ -116,9 +118,8 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.state.user)
     const { user, watchAnimals, animals } = this.state
-    // console.log(this.state.user);
     // debugger
     let endangeredAnimalCardFalse = animals.map(animal => <AnimalCardFalse key={animal.id} addAnimalToWatchList={this.addAnimalToWatchList} animal={animal} />)
     return (
@@ -129,9 +130,9 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => <MainComponent addAnimalToWatchList={this.addAnimalToWatchList} />} />
 
-          <Route path="/userpage" render={() => <Userpage user={user} updatedUser={this.updatedUser} deleteUser={this.deleteUser} addAnimalToWatchList={this.addAnimalToWatchList} removeAnimal={this.removeAnimal} watchAnimals={watchAnimals} animals={animals} setCurrentUser={this.setCurrentUser} />} />
+          <Route path="/userpage" render={() => <Userpage user={user} updatedUser={this.updatedUser} deleteUser={this.deleteUser} addAnimalToWatchList={this.addAnimalToWatchList} removeAnimal={this.removeAnimal} watchAnimals={watchAnimals} animals={animals} />} />
 
-          <Route path="/endanimals" render={() => endangeredAnimalCardFalse} />
+          <Route path="/endanimals" render={() => <EndangeredAnimals endangeredAnimalCardFalse={endangeredAnimalCardFalse} />} />
 
           <Route path="/about" render={() => <AboutPage />} />
 
