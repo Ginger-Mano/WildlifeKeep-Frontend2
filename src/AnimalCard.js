@@ -20,12 +20,12 @@ class AnimalCard extends Component {
     render() {
         return (
 
-            this.props.login !== false ?
+            this.props.login === false ?
                 <Card className="animalcard">
 
 
                     <h2 className="animalname" onClick={this.handleInfoModalClick}>{this.props.animal.name}</h2>
-                    <Image className="animalImage" src={this.props.animal.url} padded></Image>
+                    <Image className="animalImage" alt="image not available" src={this.props.animal.url} padded></Image>
 
                     <EndangeredInfoModal animal={this.props.animal} />
                     <br></br>

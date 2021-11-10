@@ -21,9 +21,9 @@ class AnimalCardFalse extends Component {
     // console.log(this.props.animal);
     return (
       <div className="animalmain">
-        <Card>
-          <h2 onClick={this.handleInfoModalClick}>{this.props.animal.name}</h2>
-          <Image size='large' src={this.props.animal.url} padded></Image>
+        <Card className="animalcard">
+          <h2 className="animalname" onClick={this.handleInfoModalClick}>{this.props.animal.name}</h2>
+          <Image className="animalImage" alt="image not available" src={this.props.animal.url} padded></Image>
 
           <EndangeredInfoModal animal={this.props.animal} />
 

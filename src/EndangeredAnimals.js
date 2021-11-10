@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import AnimalCard from "./AnimalCard"
+import AnimalCardFalse from "./AnimalCardFalse"
 import {
     Card,
     Button,
@@ -29,7 +29,7 @@ class EndangeredAnimals extends Component {
     render() {
         // console.log(this.props.itemsPerRow);
 
-        let endangeredAnimalCard = this.props.animals.map(animal => <AnimalCard key={animal.id} addAnimalToWatchList={this.props.addAnimalToWatchList} animal={animal} login={this.props.login} />)
+        let endangeredAnimalCard = this.props.animals.map(animal => <AnimalCardFalse key={animal.id} addAnimalToWatchList={this.props.addAnimalToWatchList} animal={animal} login={this.props.login} />)
 
         let renderFirstThree = this.state.seeAllAnimals ? endangeredAnimalCard : endangeredAnimalCard.slice(0, 8)
 
